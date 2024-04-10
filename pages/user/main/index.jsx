@@ -1,28 +1,59 @@
 "use client"
 import React, { useContext, useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { userContext } from '@/utils/context/userProvider';
 import TransferirTalentos from '@/components/transferirTalentos';
 import BuscarVocaciones from '@/components/BuscarVocaciones';
+import { signOutUser } from '@/utils/services/authFirebase';
+import { getData } from '@/utils/services/crud';
 
 const UserMain = () => {
   const { user } = useContext(userContext);
   const [selectedOption, setSelectedOption] = useState('transferir'); // 'transferir' o 'buscar'
   const [talentos, setTalentos] = useState(user ? user.talentos : 0);
+  const [userName, setUserName] = useState(user ? user.name : '');
+  const router = useRouter();
 
   useEffect(() => {
     if (user) {
       setTalentos(user.talentos);
+      setUserName(user.name);
     }
   }, [user]);
 
+  useEffect(() => {
+    const fetchUserTalentos = async () => {
+      try {
+        const userData = await getData('users');
+        const matchedUser = userData.find(u => u.id === user.id);  // Encuentra el usuario con el mismo ID
+        if (matchedUser) {
+          setTalentos(matchedUser.talentos);  // Actualiza los talentos del usuario
+        }
+      } catch (error) {
+        console.error('Error al obtener los talentos del usuario:', error);
+      }
+    };
+
+    if (user) {
+      fetchUserTalentos();
+    }
+  }, []);
+
+  const LogOut = () => {
+    signOutUser();
+    router.push("/");
+  }
+  console.log(talentos)
+
   return (
     <div>
-      <nav className="mx-12 my-4">
-        <p>¡Hola {user.name}!</p>
+      <nav className="px-24 my-4 flex flex-row justify-end">
+        <p>¡Hola {userName}!</p>
+        <button className='mx-12 hover:font-bold' onClick={LogOut}>Salir</button>
       </nav>
       <section className="text-center text-lg">
         <p className="font-bold">Estado de Cuenta</p>
-        <p>Eres el número de socio {user.clientNumber}</p>
+        <p>Eres el número de socio {user ? user.clientNumber : ''}</p>
         <p>Tienes {talentos} talentos disponibles</p>
       </section>
 
@@ -47,7 +78,7 @@ const UserMain = () => {
       </div>
 
       {/* Mostrar componente seleccionado */}
-      {selectedOption === 'transferir' && <TransferirTalentos userId={user.id} userClientNumber={user.clientNumber} />}
+      {selectedOption === 'transferir' && <TransferirTalentos userId={user ? user.id : ''} userClientNumber={user ? user.clientNumber : ''} />}
       {selectedOption === 'buscar' && <BuscarVocaciones />}
     </div>
   );

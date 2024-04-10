@@ -112,9 +112,9 @@ const SignUpForm = () => {
                     required
                   />
                 </div>
-                <div className="my-2">
-                  <p>Al dar click en el registro, aceptas y reconoces que esto es una prueba de simulacro sin efecto real alguno.</p> <br />
-                  <p>Simplemente es para darse una udea de cómo es posible transferir "Puntos" (aquí llamados "Talentos") dentro de la aplicación, actualizando saldos de manera automática, tanto del cliente como del proveedor.</p>
+                <div className="my-2 text-red-700">
+                  <p>Al dar click en el boton "Registrarse", aceptas y reconoces que esto es una prueba de simulacro sin efecto real alguno.</p> <br />
+                  <p>Simplemente es para darse una idea de cómo es posible transferir "Puntos" (aquí llamados "Talentos") dentro de la aplicación, actualizando saldos de manera automática, tanto del cliente como del proveedor.</p>
                   <br />
                 </div>
                 <button

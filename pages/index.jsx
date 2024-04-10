@@ -13,7 +13,7 @@ export default function Home() {
         <section className="mb-16">
           <h2 className="text-3xl font-semibold mb-4">¿Qué es nuestra app?</h2>
           <p className="text-xl mb-4">
-            Nuestra aplicación está diseñada para combatir la desigualdad social, permitiendo a las personas acceder a servicios a través de una moneda digital llamada "talentos".
+            Nuestra aplicación está diseñada para crear oportunidades para todos, permitiendo a las personas acceder a servicios a través de una moneda digital llamada "talentos".
           </p>
           <p className="text-xl mb-4">
             Con 50 talentos iniciales al abrir una cuenta, los usuarios pueden intercambiar estos talentos por diversos servicios ofrecidos por profesionales en la comunidad.

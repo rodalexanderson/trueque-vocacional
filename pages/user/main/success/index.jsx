@@ -14,8 +14,8 @@ const TransferSuccess = () => {
   }, []);
 
   return (
-    <div className="mt-8 p-6 bg-white rounded-md shadow-md text-center">
-      <h2 className="text-2xl font-bold mb-4">Talentos enviados exitosamente</h2>
+    <div className="p-6 bg-white rounded-md shadow-md text-center w-96 mx-auto mt-24">
+      <h2 className="text-2xl font-bold mb-4 text-green-600">Talentos enviados exitosamente</h2>
       <p>Redirigiendo a <Link href="'/user/main'">página principal</Link> en unos segundos...</p>
     </div>
   );

@@ -66,9 +66,9 @@ const TransferirTalentos = ({ userId, userClientNumber, userTalent }) => {
   };
 
   return (
-    <div className="mt-8 p-6 bg-white rounded-md shadow-md">
+    <div className="mt-8 p-6 bg-white rounded-md shadow-md mx-auto max-w-lg">
       <h2 className="text-2xl font-bold mb-4 text-center">Transferir Talentos</h2>
-      <div className="mb-4">
+      <div className="mb-4 ">
         <label className="block text-gray-700 font-bold mb-2">Número de cliente destino:</label>
         <select
           value={destinationClient}

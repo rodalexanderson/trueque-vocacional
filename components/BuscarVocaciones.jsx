@@ -28,8 +28,8 @@ const BuscarVocaciones = () => {
 
   return (
     <div className="mt-4">
-      <h2 className="text-lg font-semibold">Buscar Vocaciones</h2>
-      <div className="mt-2">
+      <h2 className="text-lg font-semibold text-center">Buscar Vocaciones</h2>
+      <div className="mt-2 w-96 mx-auto">
         <input
           type="text"
           placeholder="Buscar por nombre o vocación"
@@ -38,7 +38,7 @@ const BuscarVocaciones = () => {
           className="border p-2 rounded w-full"
         />
       </div>
-      <div className="mt-4 w-4/5 max-w-xl mx-auto flex flex-wrap">
+      <div className="mt-4 px-12 max-w-7xl mx-auto flex flex-row flex-wrap justify-center">
         {filteredUsers.length > 0 ? (
           filteredUsers.map((user) => <UserCard key={user.id} user={user} />)
         ) : (
