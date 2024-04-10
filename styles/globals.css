@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input:focus {
+    outline: none;
+  }
+
+  .input-padding {
+    padding: 0.5rem; /* Puedes ajustar este valor según tus preferencias */
+  }
