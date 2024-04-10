@@ -9,7 +9,7 @@ export default function Home() {
     <main className='font-sans max-w-7xl mx-auto'>
       <Navbar />
       <h1 className='text-5xl text-center tracking-wider'>Bienvenido a la app de prueba de Trueque Vocacional</h1>
-      <main className="container mx-auto py-12">
+      <main className="container mx-auto py-12 px-10">
         <section className="mb-16">
           <h2 className="text-3xl font-semibold mb-4">¿Qué es nuestra app?</h2>
           <p className="text-xl mb-4">
