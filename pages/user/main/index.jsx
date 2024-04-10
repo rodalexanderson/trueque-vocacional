@@ -2,7 +2,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { userContext } from '@/utils/context/userProvider';
-import TransferirTalentos from '@/components/transferirTalentos';
+import TransferirTalentos from '@/components/TransferirTalentos';
 import BuscarVocaciones from '@/components/BuscarVocaciones';
 import { signOutUser } from '@/utils/services/authFirebase';
 import { getData } from '@/utils/services/crud';
