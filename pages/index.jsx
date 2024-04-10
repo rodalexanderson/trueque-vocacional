@@ -54,7 +54,7 @@ export default function Home() {
             No esperes más para ser parte de esta revolución social y económica. Únete a nuestra comunidad y comienza a beneficiarte de los servicios disponibles y a compartir tus propios talentos.
           </p>
           <div className='text-center'>
-            <Link href="/registro" className='text-4xl text-red-500 font-bold'>
+            <Link href="/signup" className='text-4xl text-red-500 font-bold'>
                 Regístrate Ahora
             </Link>
           </div>
