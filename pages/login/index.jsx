@@ -1,6 +1,7 @@
 "use client"
 import React, { useState, useContext } from 'react';
 import Head from 'next/head';
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import { useRouter } from 'next/router';
 import Navbar from '@/components/Navbar';
 import { userContext } from '@/utils/context/userProvider';
@@ -16,6 +17,7 @@ const Login = () => {
   const [emailMessage, setEmailMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [passwordMessage, setPasswordMessage] = useState('');
+  const auth = getAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default form submission
@@ -43,6 +45,16 @@ const Login = () => {
       }
     }
     setSubmitting(false);
+  };
+
+  const handleResetPassword = async () => {
+    try {
+      await sendPasswordResetEmail(auth, formData.email);
+      alert('Se ha enviado un correo electrónico para restablecer tu contraseña. Por favor, revisa tu bandeja de entrada.');
+    } catch (error) {
+      console.error('Error al enviar correo para restablecer contraseña:', error);
+      alert('Ocurrió un error al intentar restablecer tu contraseña. Por favor, intenta nuevamente.');
+    }
   };
 
   return (
@@ -133,6 +145,15 @@ const Login = () => {
           </div>
         </div>
       </form>
+      <div className="mt-4 mx-auto text-center">
+        <button
+          className="text-blue-500 hover:text-blue-700 focus:outline-none focus:underline"
+          onClick={handleResetPassword}
+        >
+          ¿Olvidaste tu contraseña?
+        </button>
+        <p>Debes ingresar tu correo en el campo del formulario, de lo contrario, te aparecerá un error.</p>
+      </div>
     </div>
   );
 };

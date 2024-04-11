@@ -12,7 +12,7 @@ const Navbar = () => {
               </nav>
           </div>
           <div className='flex flex-row justify-around ml-6 lg:ml-24'>
-          <Link href="/signup" className='text-md md:text-lg font-sans1 font-light my-auto mb-4 hover:font-bold mr-8'>Crea tu cuenta</Link>
+          {/* <Link href="/signup" className='text-md md:text-lg font-sans1 font-light my-auto mb-4 hover:font-bold mr-8'>Crea tu cuenta</Link> */}
           <Link href="/login" className='text-md md:text-lg font-sans1 font-light my-auto mb-4 hover:font-bold'>Entrar</Link>
           </div>
       </div>
