@@ -10,7 +10,7 @@ const TransferirTalentos = ({ userId, userClientNumber, userTalent }) => {
   const [clients, setClients] = useState([]);
   const [users, setUsers] = useState([]);
 
-  // Obtener todos los números de clientes existentes
+  // Obtener todos los números de proveedoress existentes
   useEffect(() => {
     const fetchClients = async () => {
       try {
@@ -26,7 +26,7 @@ const TransferirTalentos = ({ userId, userClientNumber, userTalent }) => {
         setClients(uniqueClientNumbers.filter(num => num !== userClientNumber));
         setUsers(formattedData);
       } catch (error) {
-        console.error('Error al obtener clientes:', error);
+        console.error('Error al obtener proveedoress:', error);
       }
     };
     fetchClients();
@@ -44,7 +44,7 @@ const TransferirTalentos = ({ userId, userClientNumber, userTalent }) => {
       // Obtener información del usuario destino
       const selectedUser = users.find(user => user.clientNumber === Number(destinationClient));
       if (!selectedUser) {
-        alert('El número de cliente destino no existe.');
+        alert('El número de proveedores destino no existe.');
         return;
       }
 
@@ -69,13 +69,13 @@ const TransferirTalentos = ({ userId, userClientNumber, userTalent }) => {
     <div className="mt-8 p-6 bg-white rounded-md shadow-md mx-auto max-w-lg">
       <h2 className="text-2xl font-bold mb-4 text-center">Transferir Talentos</h2>
       <div className="mb-4 ">
-        <label className="block text-gray-700 font-bold mb-2">Número de cliente destino:</label>
+        <label className="block text-gray-700 font-bold mb-2">Número de proveedores destino:</label>
         <select
           value={destinationClient}
           onChange={(e) => setDestinationClient(e.target.value)}
           className="w-full px-3 py-2 leading-tight border rounded-md focus:outline-none focus:shadow-outline"
         >
-          <option value="">Selecciona un cliente</option>
+          <option value="">Selecciona un proveedores</option>
           {clients.map(client => (
             <option key={client} value={client}>{client}</option>
           ))}
